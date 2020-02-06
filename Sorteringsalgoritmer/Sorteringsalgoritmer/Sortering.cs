@@ -11,24 +11,42 @@ namespace Sorteringsalgoritmer
 {
     class Sortering
     {
-        public double Bubble(List<int> bubblesort)
+        public double Bubble(List<int> bubbleSort)
         {
-            Stopwatch bubblewatch = new Stopwatch();
-            bubblewatch.Start();
-            for (int i = 0; i < bubblesort.Count - 1; i++)
+            Stopwatch bubbleWatch = new Stopwatch();
+            bubbleWatch.Start();
+            for (int i = 0; i < bubbleSort.Count - 1; i++)
             {
-                for (int j = 0; j < bubblesort.Count - 1; j++)
+                for (int j = 0; j < bubbleSort.Count - 1; j++)
                 {
-                    if (bubblesort[j] > bubblesort[j + 1])
+                    if (bubbleSort[j] > bubbleSort[j + 1])
                     {
-                        int temp = bubblesort[j];
-                        bubblesort[j] = bubblesort[j + 1];
-                        bubblesort[j + 1] = temp;
+                        int temp = bubbleSort[j];
+                        bubbleSort[j] = bubbleSort[j + 1];
+                        bubbleSort[j + 1] = temp;
                     }
                 }
             }
-            bubblewatch.Stop();
-            return bubblewatch.Elapsed.TotalMilliseconds;
+            bubbleWatch.Stop();
+            return bubbleWatch.Elapsed.TotalMilliseconds;
+        }
+        public double Insertion(List<int> insertionSort)
+        {
+            Stopwatch insertionWatch = new Stopwatch();
+            insertionWatch.Start();
+            for (int i = 1; i < insertionSort.Count; i++)
+            {
+                int x = insertionSort[i];
+                int j = i - 1;
+                while (j >= 0 && insertionSort[j]>x)
+                {
+                    insertionSort[j + 1] = insertionSort[j];
+                    j--;
+                }
+                insertionSort[j + 1] = x;
+            }
+            insertionWatch.Stop();
+            return insertionWatch.Elapsed.TotalMilliseconds;
         }
     }
 }
