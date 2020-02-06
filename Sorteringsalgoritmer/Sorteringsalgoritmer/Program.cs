@@ -23,6 +23,7 @@ namespace Sorteringsalgoritmer
             }
             List<int> bubbleSort = new List<int>(nummerLista);
             List<int> insertionSort = new List<int>(nummerLista);
+            List<int> mergeSort = new List<int>(nummerLista);
 
             double bubbleTime = sortering.Bubble(bubbleSort);
             Console.WriteLine("Bubblesort tid: " + bubbleTime + " millisekunder");
@@ -30,8 +31,10 @@ namespace Sorteringsalgoritmer
             double insertionTime = sortering.Insertion(insertionSort);
             Console.WriteLine("Insertionsort tid: " + insertionTime + " millisekunder");
 
+            double mergeTime = sortering.Insertion(mergeSort);
+            Console.WriteLine("Mergesort tid: " + mergeTime + " millisekunder");
         }
-        
+
     }
 }
     

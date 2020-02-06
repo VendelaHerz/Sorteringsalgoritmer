@@ -30,6 +30,7 @@ namespace Sorteringsalgoritmer
             bubbleWatch.Stop();
             return bubbleWatch.Elapsed.TotalMilliseconds;
         }
+
         public double Insertion(List<int> insertionSort)
         {
             Stopwatch insertionWatch = new Stopwatch();
@@ -48,5 +49,21 @@ namespace Sorteringsalgoritmer
             insertionWatch.Stop();
             return insertionWatch.Elapsed.TotalMilliseconds;
         }
-    }
+
+        public double Merge1 (List<int> mergeSort)
+        {
+            Stopwatch mergeWatch = new Stopwatch();
+            mergeWatch.Start();
+            mergeWatch.Stop();
+            return mergeWatch.Elapsed.TotalMilliseconds;
+        }
+
+        public double Quick(List<int> quickSort)
+        {
+            Stopwatch quickWatch = new Stopwatch();
+            quickWatch.Start();
+            quickWatch.Stop();
+            return quickWatch.Elapsed.TotalMilliseconds;
+        }
+    }   
 }
