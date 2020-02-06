@@ -16,7 +16,7 @@ namespace Sorteringsalgoritmer
             Sortering sortering = new Sortering();
             List<int> nummerLista = new List<int>();
             Random nummer = new Random();
-            for (int i = 0; i < 1_0; i++)
+            for (int i = 0; i < 1_000; i++)
             {
                 int num = nummer.Next(1, 100001);
                 nummerLista.Add(num);
@@ -24,6 +24,7 @@ namespace Sorteringsalgoritmer
             List<int> bubbleSort = new List<int>(nummerLista);
             List<int> insertionSort = new List<int>(nummerLista);
             List<int> mergeSort = new List<int>(nummerLista);
+            List<int> quickSort = new List<int>(nummerLista);
 
             double bubbleTime = sortering.Bubble(bubbleSort);
             Console.WriteLine("Bubblesort tid: " + bubbleTime + " millisekunder");
@@ -33,6 +34,9 @@ namespace Sorteringsalgoritmer
 
             double mergeTime = sortering.Insertion(mergeSort);
             Console.WriteLine("Mergesort tid: " + mergeTime + " millisekunder");
+
+            double quickTime = sortering.Quick(quickSort);
+            Console.WriteLine("Quicksort tid: " + quickTime + " millisekunder");
         }
 
     }
