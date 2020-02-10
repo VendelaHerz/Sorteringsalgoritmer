@@ -60,8 +60,8 @@ namespace Sorteringsalgoritmer
         }
         private List<int> Merge2(List<int> mergeSort)
         {
-            List<int> left = new List<int>();
-            List<int> right = new List<int>();
+            List<int> vänster = new List<int>();
+            List<int> höger = new List<int>();
 
             if (mergeSort.Count <= 1)
             {
@@ -69,40 +69,40 @@ namespace Sorteringsalgoritmer
             }
 
             int x = mergeSort.Count / 2;
-            left = mergeSort.GetRange(0, x);
-            right = mergeSort.GetRange(x, mergeSort.Count - x);
+            vänster = mergeSort.GetRange(0, x);
+            höger = mergeSort.GetRange(x, mergeSort.Count - x);
 
-            left = Merge2(left);
-            right = Merge2(right);
+            vänster = Merge2(vänster);
+            höger = Merge2(höger);
 
-            return Merge3(left, right);
+            return Merge3(vänster, höger);
         }
 
-        private List<int> Merge3(List<int> left, List<int> right)
+        private List<int> Merge3(List<int> vänster, List<int> höger)
         {
             List<int> result = new List<int>();
 
-            while (left.Count > 0 && right.Count > 0)
+            while (vänster.Count > 0 && höger.Count > 0)
             {
-                if (left[0] <= right[0])
+                if (vänster[0] <= höger[0])
                 {
-                    result.Add(left[0]);
-                    left = left.GetRange(1, left.Count - 1);
+                    result.Add(vänster[0]);
+                    vänster = vänster.GetRange(1, vänster.Count - 1);
                 }
                 else
                 {
-                    result.Add(right[0]);
-                    right = right.GetRange(1, right.Count - 1);
+                    result.Add(höger[0]);
+                    höger = höger.GetRange(1, höger.Count - 1);
                 }
             }
         
-            if (left.Count > 0)
+            if (vänster.Count > 0)
             {
-                result.AddRange(left);
+                result.AddRange(vänster);
             }
             else
             {
-                result.AddRange(right);
+                result.AddRange(höger);
             }
             return result;
         }

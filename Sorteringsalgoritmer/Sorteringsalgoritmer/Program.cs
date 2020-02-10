@@ -20,7 +20,7 @@ namespace Sorteringsalgoritmer
             Random nummer = new Random();
             for (int i = 0; i < antal; i++)
             {
-                int num = nummer.Next(1, 100001);
+                int num = nummer.Next(1, antal + 1);
                 nummerLista.Add(num);
             }
             List<int> bubbleSort = new List<int>(nummerLista);
