@@ -65,5 +65,13 @@ namespace Sorteringsalgoritmer
             quickWatch.Stop();
             return quickWatch.Elapsed.TotalMilliseconds;
         }
+        public double C(List<int> cSort)
+        {
+            Stopwatch cWatch = new Stopwatch();
+            cWatch.Start();
+            cSort.Sort();
+            cWatch.Stop();
+            return cWatch.Elapsed.TotalMilliseconds;
+        }
     }   
 }
