@@ -39,7 +39,7 @@ namespace Sorteringsalgoritmer
             {
                 int x = insertionSort[i];
                 int j = i - 1;
-                while (j >= 0 && insertionSort[j]>x)
+                while (j >= 0 && insertionSort[j] > x)
                 {
                     insertionSort[j + 1] = insertionSort[j];
                     j--;
@@ -50,11 +50,11 @@ namespace Sorteringsalgoritmer
             return insertionWatch.Elapsed.TotalMilliseconds;
         }
 
-        public double Merge1 (List<int> mergeSort)
+        public double Merge1(List<int> mergeSort)
         {
             Stopwatch mergeWatch = new Stopwatch();
             mergeWatch.Start();
-            List<int> SortedList = Merge2(mergeSort);
+            List<int> SorteradLista = Merge2(mergeSort);
             mergeWatch.Stop();
             return mergeWatch.Elapsed.TotalMilliseconds;
         }
@@ -95,7 +95,7 @@ namespace Sorteringsalgoritmer
                     right = right.GetRange(1, right.Count - 1);
                 }
             }
-
+        
             if (left.Count > 0)
             {
                 result.AddRange(left);
@@ -107,12 +107,42 @@ namespace Sorteringsalgoritmer
             return result;
         }
 
-        public double Quick(List<int> quickSort)
-        {
+        public double Quick1(List<int> quickSort)
+        { 
             Stopwatch quickWatch = new Stopwatch();
             quickWatch.Start();
+            Quick2(quickSort, 0, quickSort.Count - 1);
             quickWatch.Stop();
             return quickWatch.Elapsed.TotalMilliseconds;
+        }
+        private void Quick2(List<int> quickSort, int low, int high)
+        {
+            if (low < high)
+            {
+                int p;
+                p = Partition(quickSort, low, high);
+                Quick2(quickSort, low, p - 1);
+                Quick2(quickSort, p + 1, high);
+            }
+        }
+        private int Partition(List<int> quickSort, int low, int high)
+        {
+            int pivot = quickSort[high];
+            int i = low;
+            for (int j = low; j < high; j++)
+            {
+                if (quickSort[j] < pivot)
+                {
+                    int a = quickSort[i];
+                    quickSort[i] = quickSort[j];
+                    quickSort[j] = a;
+                    i++;
+                }
+            }
+            int b = quickSort[i];
+            quickSort[i] = quickSort[high];
+            quickSort[high] = b;
+            return i;
         }
         public double C(List<int> cSort)
         {
@@ -122,5 +152,5 @@ namespace Sorteringsalgoritmer
             cWatch.Stop();
             return cWatch.Elapsed.TotalMilliseconds;
         }
-    }   
+    }
 }

@@ -35,14 +35,14 @@ namespace Sorteringsalgoritmer
             double insertionTime = sortering.Insertion(insertionSort);
             Console.WriteLine("Insertionsort tid: " + insertionTime + " millisekunder");
 
-            double mergeTime = sortering.Insertion(mergeSort);
+            double mergeTime = sortering.Merge1(mergeSort);
             Console.WriteLine("Mergesort tid: " + mergeTime + " millisekunder");
 
-            double quickTime = sortering.Quick(quickSort);
+            double quickTime = sortering.Quick1(quickSort);
             Console.WriteLine("Quicksort tid: " + quickTime + " millisekunder");
 
             double cTime = sortering.C(cSort);
-            Console.WriteLine("C#s inbyggda sort tid: " + cTime + " millisekunder");
+            Console.WriteLine("C#s inbyggda sortering tid: " + cTime + " millisekunder");
         }
 
     }
