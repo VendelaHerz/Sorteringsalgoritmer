@@ -14,11 +14,11 @@ namespace Sorteringsalgoritmer
         static void Main(string[] args)
         {
             Console.WriteLine("Hur många element ska listan innehålla?");
-            int element = int.Parse(Console.ReadLine());
+            int antal = int.Parse(Console.ReadLine());
             Sortering sortering = new Sortering();
             List<int> nummerLista = new List<int>();
             Random nummer = new Random();
-            for (int i = 0; i < element; i++)
+            for (int i = 0; i < antal; i++)
             {
                 int num = nummer.Next(1, 100001);
                 nummerLista.Add(num);
