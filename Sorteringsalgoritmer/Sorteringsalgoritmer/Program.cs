@@ -42,7 +42,7 @@ namespace Sorteringsalgoritmer
             Console.WriteLine("Quicksort tid: " + quickTime + " millisekunder");
 
             double cTime = sortering.C(cSort);
-            Console.WriteLine("Csort tid: " + cTime + " millisekunder");
+            Console.WriteLine("C#s inbyggda sort tid: " + cTime + " millisekunder");
         }
 
     }
